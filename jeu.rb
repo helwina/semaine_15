@@ -21,7 +21,7 @@ class Personne
     # - Fait subir des dégats à la personne passée en paramètre
     # - Affiche ce qu'il s'est passé
 	puts "\n#{@nom} attaque #{personne.nom} :\n"
-	puts "===========================================\n\n"
+	puts "===========================================\n"
     personne.subit_attaque(degats)
   end
 
@@ -31,7 +31,7 @@ class Personne
     # - Affiche ce qu'il s'est passé
     # - Détermine si la personne est toujours en_vie ou non
 	puts "#{@nom} subit #{degats_recus} points de dégats !!!"
-	puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\n"
+	puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
     @points_de_vie -= degats_recus
 
     if @points_de_vie <= 0 && @en_vie
@@ -63,19 +63,19 @@ class Joueur < Personne
   def soin
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
-	@points_de_vie += 10
+	@points_de_vie += 25
 	puts '....................................................................'
     puts "\n#{@nom} regagne 10 points de vie.\n\n"
-	puts "....................................................................\n\n"
+	puts "....................................................................\n"
   end
 
   def ameliorer_degats
     # - Augmenter les dégats bonus
     # - Affiche ce qu'il s'est passé
-	@degats_bonus += 2
+	@degats_bonus += 3
 	puts '....................................................................'
-    puts "\n#{@nom} à la rage et #{@degats_bonus} points de dégats bonus!!!\n\n"
-	puts "....................................................................\n\n"
+    puts "\n#{@nom} à la rage et #{@degats_bonus} points de dégats bonus!!!\n"
+	puts "....................................................................\n"
   end
 end
 
@@ -141,7 +141,7 @@ monde.ennemis = [
 joueur = Joueur.new('Jean-Michel Paladin')
 
 # Message d'introduction. \n signifie "retour à la ligne"
-puts "\n\nAinsi débutent les aventures de #{joueur.nom}\n\n"
+puts "\nAinsi débutent les aventures de #{joueur.nom}\n"
 
 # Boucle de jeu principale
 100.times do |tour|
@@ -150,7 +150,7 @@ puts "\n\nAinsi débutent les aventures de #{joueur.nom}\n\n"
   # Affiche les différentes actions possibles
   Jeu.actions_possibles(monde)
 
-  puts "\n QUELLE ACTION FAIRE ?\n\n"
+  puts "\n QUELLE ACTION FAIRE ?\n"
   # On range dans la variable "choix" ce que l'utilisateur renseigne
   choix = gets.chomp.to_i
 
@@ -171,8 +171,8 @@ puts "\n\nAinsi débutent les aventures de #{joueur.nom}\n\n"
     joueur.attaque(ennemi_a_attaquer)
   end
   puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-  puts "\nLES ENNEMIS RIPOSTENT !!!\n\n"
-  puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n"
+  puts "\nLES ENNEMIS RIPOSTENT !!!\n"
+  puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
   # Pour tous les ennemis en vie ...
   monde.ennemis_en_vie.each do |ennemi|
     # ... le héro subit une attaque.
@@ -185,7 +185,7 @@ puts "\n\nAinsi débutent les aventures de #{joueur.nom}\n\n"
   break if Jeu.est_fini(joueur, monde)
 end
 
-puts "\nGame Over!\n\n"
+puts "\nGame Over!\n"
 
 # A faire:
 # - Afficher le résultat de la partie

@@ -11,11 +11,12 @@ while nbralea != reponse
     total +=1
 
   elsif reponse > nbralea
-    pjts 'trop grand'
+    puts 'trop grand'
     total +=1
 
   else
     puts 'bravo'
     puts "vous avez trouvez en #{total} essai(s)"
+
   end
 end

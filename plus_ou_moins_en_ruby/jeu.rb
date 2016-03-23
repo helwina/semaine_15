@@ -15,7 +15,7 @@ while nbralea != reponse
     total +=1
 
   else
-    puts 'bravo'
+    puts "bravo #{nbralea} etait bien la bonne reponse"
     puts "vous avez trouvez en #{total} essai(s)"
 
   end

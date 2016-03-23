@@ -12,8 +12,10 @@ class Personne
     # - Renvoie le nom et "vaincu" si la personne a été vaincue
 	if @en_vie
       @nom + " ( #{points_de_vie}/100 Points de vie )"
+
     else
       @nom + ' (xxx vaincu xxx)'
+
     end
   end
 
@@ -24,7 +26,6 @@ class Personne
 	puts "===========================================\n"
     personne.subit_attaque(degats)
   end
-
 
   def subit_attaque(degats_recus)
     # - Réduit les points de vie en fonction des dégats reçus
@@ -37,6 +38,7 @@ class Personne
     if @points_de_vie <= 0 && @en_vie
        @en_vie = false
        puts "#{@nom} a été vaincu"
+
     end
   end
 end
@@ -157,12 +159,15 @@ puts "\nAinsi débutent les aventures de #{joueur.nom}\n"
   # En fonction du choix on appelle différentes méthodes sur le joueur
   if choix == 0
     joueur.soin
+
   elsif choix == 1
     joueur.ameliorer_degats
+
   elsif choix == 99
     # On quitte la boucle de jeu si on a choisi
     # 99 qui veut dire "quitter"
     break
+
   else
     # Choix - 2 car nous avons commencé à compter à partir de 2
     # car les choix 0 et 1 étaient réservés pour le soin et
@@ -170,10 +175,12 @@ puts "\nAinsi débutent les aventures de #{joueur.nom}\n"
     ennemi_a_attaquer = monde.ennemis[choix - 2]
     joueur.attaque(ennemi_a_attaquer)
   end
+
   puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
   puts "\nLES ENNEMIS RIPOSTENT !!!\n"
   puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
   # Pour tous les ennemis en vie ...
+
   monde.ennemis_en_vie.each do |ennemi|
     # ... le héro subit une attaque.
     ennemi.attaque(joueur)
@@ -187,13 +194,14 @@ end
 
 puts "\nGame Over!\n"
 
-# A faire:
 # - Afficher le résultat de la partie
 
 if joueur.en_vie && monde.ennemis_en_vie.size == 0
   puts 'Vous avez gagné !'
+
 elsif joueur.en_vie
   puts 'Trouillard !!!'
+
 else
   puts 'Vous avez perdu !'
 end

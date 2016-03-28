@@ -10,7 +10,7 @@ class Personne
   def info
     # - Renvoie le nom et les points de vie si la personne est en vie
     # - Renvoie le nom et "vaincu" si la personne a été vaincue
-	if @en_vie
+	  if @en_vie
       @nom + " ( #{points_de_vie}/100 Points de vie )"
 
     else

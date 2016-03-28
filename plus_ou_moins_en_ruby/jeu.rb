@@ -6,7 +6,11 @@ while nbralea != reponse
   puts 'entree un nombre entre 1 et 100'
   reponse = gets.chomp.to_i
 
-  if reponse < nbralea
+  if reponse <= 0 || reponse > 100
+    puts 'vous devez entree un nombre entre 1 et 100'
+    total += 1
+
+  elsif reponse < nbralea
     puts 'trop petit'
     total +=1
 

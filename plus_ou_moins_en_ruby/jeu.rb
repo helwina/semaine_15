@@ -3,24 +3,24 @@ reponse = 0
 total = 1
 
 while nbralea != reponse
-  puts 'entree un nombre entre 1 et 100'
+  puts 'Entrée un nombre entre 1 et 100.'
   reponse = gets.chomp.to_i
 
   if reponse <= 0 || reponse > 100
-    puts 'vous devez entree un nombre entre 1 et 100'
+    puts 'Vous devez entrée un nombre entre 1 et 100 !'
     total += 1
 
   elsif reponse < nbralea
-    puts 'trop petit'
+    puts 'Votre proposition est trop petite !'
     total +=1
 
   elsif reponse > nbralea
-    puts 'trop grand'
+    puts 'Votre proposition est trop grande !'
     total +=1
 
   else
-    puts "bravo #{nbralea} etait bien la bonne reponse"
-    puts "vous avez trouvez en #{total} essai(s)"
+    puts "Bravo #{nbralea} était bien la bonne réponse"
+    puts "Vous avez trouver en #{total} essai(s)"
 
   end
 end

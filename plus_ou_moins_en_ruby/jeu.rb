@@ -11,16 +11,16 @@ while nbralea != reponse
     total += 1
 
   elsif reponse < nbralea
-    puts 'Votre proposition est trop petite !'
+    puts "Dommage #{reponse} est trop petit."
     total +=1
 
   elsif reponse > nbralea
-    puts 'Votre proposition est trop grande !'
+    puts "Dommage #{reponse} est trop grand."
     total +=1
 
   else
-    puts "Bravo #{nbralea} était bien la bonne réponse"
-    puts "Vous avez trouver en #{total} essai(s)"
+    puts "Bravo #{nbralea} est bien la bonne réponse."
+    puts "Vous avez trouver en #{total} essai(s)."
 
   end
 end

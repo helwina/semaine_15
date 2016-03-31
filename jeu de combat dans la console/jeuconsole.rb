@@ -3,18 +3,18 @@ class Personne
 
   def initialize(nom)
     @nom = nom
-    @points_de_vie = 100
+  @points_de_vie = 100
     @en_vie = true
   end
 
   def info
     # - Renvoie le nom et les points de vie si la personne est en vie
     # - Renvoie le nom et "vaincu" si la personne a été vaincue
-	  if @en_vie
+    if @en_vie
       @nom + " ( #{points_de_vie}/100 Points de vie )"
 
     else
-      @nom + ' (xxx vaincu xxx)'
+      @nom + '(xxx vaincu xxx)'
 
     end
   end
@@ -22,8 +22,8 @@ class Personne
   def attaque(personne)
     # - Fait subir des dégats à la personne passée en paramètre
     # - Affiche ce qu'il s'est passé
-	puts "\n#{@nom} attaque #{personne.nom} :\n"
-	puts "===========================================\n"
+  puts "\n#{@nom} attaque #{personne.nom} :\n"
+  puts "===========================================\n"
     personne.subit_attaque(degats)
   end
 
@@ -31,8 +31,8 @@ class Personne
     # - Réduit les points de vie en fonction des dégats reçus
     # - Affiche ce qu'il s'est passé
     # - Détermine si la personne est toujours en_vie ou non
-	puts "#{@nom} subit #{degats_recus} points de dégats !!!"
-	puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
+  puts "#{@nom} subit #{degats_recus} points de dégats !!!"
+  puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
     @points_de_vie -= degats_recus
 
     if @points_de_vie <= 0 && @en_vie
@@ -57,34 +57,34 @@ class Joueur < Personne
   def degats
     # - Calculer les dégats
     # - Affiche ce qu'il s'est passé
-	puts "#{@nom} avec #{@degats_bonus} points de dégats bonus"
-	puts '..............................................................'
-	@degats_bonus + 2
+  puts "#{@nom} avec #{@degats_bonus} points de dégats bonus"
+  puts '..............................................................'
+  @degats_bonus + 2
   end
 
   def soin
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
-	@points_de_vie += 25
-	puts '....................................................................'
+  @points_de_vie += 25
+  puts '....................................................................'
     puts "\n#{@nom} regagne 10 points de vie.\n\n"
-	puts "....................................................................\n"
+  puts "....................................................................\n"
   end
 
   def ameliorer_degats
     # - Augmenter les dégats bonus
     # - Affiche ce qu'il s'est passé
-	@degats_bonus += 3
-	puts '....................................................................'
+  @degats_bonus += 3
+  puts '....................................................................'
     puts "\n#{@nom} à la rage et #{@degats_bonus} points de dégats bonus!!!\n"
-	puts "....................................................................\n"
+  puts "....................................................................\n"
   end
 end
 
 class Ennemi < Personne
   def degats
     # - Calculer les dégats
-	+5
+  +5
   end
 end
 
@@ -108,7 +108,7 @@ class Jeu
   def self.est_fini(joueur, monde)
     # A faire:
     # - Déterminer la condition de fin du jeu
-	if !joueur.en_vie || monde.ennemis_en_vie.size == 0
+  if !joueur.en_vie || monde.ennemis_en_vie.size == 0
       true
     else
       false
@@ -121,7 +121,7 @@ class Monde
 
   def ennemis_en_vie
     # - Ne retourner que les ennemis en vie
-	@ennemis.select do |ennemi|
+  @ennemis.select do |ennemi|
       ennemi.en_vie
     end
   end

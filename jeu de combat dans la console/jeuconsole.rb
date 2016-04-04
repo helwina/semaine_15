@@ -65,7 +65,7 @@ class Joueur < Personne
   def soin
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
-  @points_de_vie += 25
+  @points_de_vie += 20
   puts '....................................................................'
     puts "\n#{@nom} regagne 10 points de vie.\n\n"
   puts "....................................................................\n"
@@ -74,7 +74,7 @@ class Joueur < Personne
   def ameliorer_degats
     # - Augmenter les dégats bonus
     # - Affiche ce qu'il s'est passé
-  @degats_bonus += 3
+  @degats_bonus += 1
   puts '....................................................................'
     puts "\n#{@nom} à la rage et #{@degats_bonus} points de dégats bonus!!!\n"
   puts "....................................................................\n"

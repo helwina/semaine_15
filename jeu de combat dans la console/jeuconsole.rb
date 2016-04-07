@@ -84,7 +84,7 @@ end
 class Ennemi < Personne
   def degats
     # - Calculer les dégats
-  +5
+    +5
   end
 end
 

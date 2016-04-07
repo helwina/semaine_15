@@ -1,8 +1,8 @@
-nbrordialea = rand 1..100
+nbrAleaOrdi = rand 1..100
 proposition = 0
 essai = 1
 
-while nbrordialea != proposition
+while nbrAleaOrdi != proposition
   puts 'Entrée un nombre entre 1 et 100.'
   proposition = gets.chomp.to_i
 
@@ -10,16 +10,16 @@ while nbrordialea != proposition
     puts 'Vous devez entrée un nombre entre 1 et 100 !'
     essai += 1
 
-  elsif proposition < nbrordialea
+  elsif proposition < nbrAleaOrdi
     puts "Dommage #{proposition} est trop petit."
     essai +=1
 
-  elsif proposition > nbrordialea
+  elsif proposition > nbrAleaOrdi
     puts "Dommage #{proposition} est trop grand."
     essai +=1
 
   else
-    puts "Bravo #{nbrordialea} est bien la bonne réponse."
+    puts "Bravo #{nbrAleaOrdi} est bien la bonne réponse."
     puts "Vous avez trouver en #{essai} essai(s)."
 
   end

@@ -15,7 +15,6 @@ class Personne
 
     else
       @nom + '(xxx vaincu xxx)'
-
     end
   end
 
@@ -57,27 +56,28 @@ class Joueur < Personne
   def degats
     # - Calculer les dégats
     # - Affiche ce qu'il s'est passé
-  puts "#{@nom} avec #{@degats_bonus} points de dégats bonus"
-  puts '..............................................................'
-  @degats_bonus + 2
+    puts "#{@nom} avec #{@degats_bonus} points de dégats bonus"
+    puts '..............................................................'
+    @degats_bonus + 2
   end
 
   def soin
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
-  @points_de_vie += 20
-  puts '....................................................................'
-    puts "\n#{@nom} regagne 10 points de vie.\n\n"
-  puts "....................................................................\n"
+    @points_de_vie += 50
+    @points_de_vie = 100 if @points_de_vie > 100
+    puts '....................................................................'
+    puts "\n#{@nom} regagne #{@points_de_vie} points de vie.\n\n"
+    puts "....................................................................\n"
   end
 
   def ameliorer_degats
     # - Augmenter les dégats bonus
     # - Affiche ce qu'il s'est passé
-  @degats_bonus += 1
-  puts '....................................................................'
-    puts "\n#{@nom} à la rage et #{@degats_bonus} points de dégats bonus!!!\n"
-  puts "....................................................................\n"
+    @degats_bonus += 1
+    puts '....................................................................'
+    puts "\n#{@nom} à la rage et gagne #{@degats_bonus} points de dégats bonus!!!\n"
+    puts "....................................................................\n"
   end
 end
 
@@ -106,9 +106,8 @@ class Jeu
   end
 
   def self.est_fini(joueur, monde)
-    # A faire:
     # - Déterminer la condition de fin du jeu
-  if !joueur.en_vie || monde.ennemis_en_vie.size == 0
+    if !joueur.en_vie || monde.ennemis_en_vie.size == 0
       true
     else
       false
@@ -121,7 +120,7 @@ class Monde
 
   def ennemis_en_vie
     # - Ne retourner que les ennemis en vie
-  @ennemis.select do |ennemi|
+    @ennemis.select do |ennemi|
       ennemi.en_vie
     end
   end
@@ -136,7 +135,8 @@ monde = Monde.new
 monde.ennemis = [
   Ennemi.new('Balrog'),
   Ennemi.new('Goblin'),
-  Ennemi.new('Squelette')
+  Ennemi.new('Squelette'),
+  Ennemi.new('ogre')
 ]
 
 # Initialisation du joueur
@@ -199,7 +199,7 @@ puts "\nGame Over!\n"
 if joueur.en_vie && monde.ennemis_en_vie.size == 0
   puts 'Vous avez gagné !'
 
-elsif joueur.en_vie
+elsif joueur.en_vie && monde.ennemis_en_vie.size >= 1
   puts 'Trouillard !!!'
 
 else

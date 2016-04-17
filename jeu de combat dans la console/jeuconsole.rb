@@ -64,7 +64,7 @@ class Joueur < Personne
   def soin
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
-    @points_de_vie += 50
+    @points_de_vie += 40
     @points_de_vie = 100 if @points_de_vie > 100
     puts '....................................................................'
     puts "\n#{@nom} regagne #{@points_de_vie} points de vie.\n\n"

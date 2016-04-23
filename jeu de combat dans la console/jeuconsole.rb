@@ -162,7 +162,8 @@ puts "\nAinsi débutent les aventures de #{joueur.nom}\n"
 
   elsif choix == 1
     joueur.ameliorer_degats
-
+  elsif choix >= 6 || choix <= 98 || choix >= 100
+    puts 'votre choix ne corespond a aucun choix disponible merci de réessayer'
   elsif choix == 99
     # On quitte la boucle de jeu si on a choisi
     # 99 qui veut dire "quitter"
